@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "yoga dev",
     "build": "yoga build",
-    "start": "yoga dev"
+    "start": "yoga dev",
+    "deploy": "now --public --alias mydailyinfobackend.now.sh"
   },
   "dependencies": {
     "isomorphic-unfetch": "^3.0.0",
