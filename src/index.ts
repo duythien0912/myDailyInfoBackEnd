@@ -1,5 +1,7 @@
 import * as path from 'path'
 import { ApolloServer, makeSchema, Yoga } from 'yoga'
+// import * as corsMiddleware from 'cors'
+
 import context from './context'
 import * as types from './graphql'
 
@@ -23,11 +25,15 @@ export default {
     })
 
     return new ApolloServer({
+      cors: true,
       schema,
       context,
     })
   },
-  startServer: server =>
-    server.listen().then(s => console.log(`Server listening at ${s.url}`)),
+  startServer: server => {
+    return server
+      .listen()
+      .then(s => console.log(`Server listening at ${s.url}`))
+  },
   stopServer: server => server.stop(),
 } as Yoga<ApolloServer>
